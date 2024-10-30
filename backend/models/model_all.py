@@ -17,8 +17,6 @@ class User(db.Model):
     ubicacion = db.Column(db.String(255), nullable=True)
     foto_perfil_url = db.Column(db.String(255), nullable=True)
 
-
-# Modelo para categorías
 class Category(db.Model):
     __tablename__ = 'categories'
 
@@ -27,7 +25,6 @@ class Category(db.Model):
     description = db.Column(db.Text)
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
 
-    # Relación con artículos
     articles = relationship("Article", backref="category", lazy=True)
 
     def to_dict(self):
@@ -38,7 +35,6 @@ class Category(db.Model):
             "created_at": self.created_at.isoformat()
         }
 
-# Modelo para artículos
 class Article(db.Model):
     __tablename__ = 'articles'
 
@@ -50,7 +46,6 @@ class Article(db.Model):
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
     updated_at = db.Column(db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
 
-    # Relación con usuarios
     user = relationship("User", backref="articles")
 
     def to_dict(self):
@@ -59,7 +54,33 @@ class Article(db.Model):
             "title": self.title,
             "content": self.content,
             "user_id": self.user_id,
+            "username": self.user.username,
             "category_id": self.category_id,
+            "category_name": self.category.name if self.category else None,
             "created_at": self.created_at.isoformat(),
             "updated_at": self.updated_at.isoformat() if self.updated_at else None
-    }
+        }
+        
+class Comment(db.Model):
+    __tablename__ = 'comments'
+
+    comment_id = db.Column(db.Integer, primary_key=True)
+    content = db.Column(db.Text, nullable=False)
+    article_id = db.Column(db.Integer, db.ForeignKey('articles.article_id', ondelete='CASCADE'), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.user_id', ondelete='SET NULL'), nullable=False)
+    created_at = db.Column(db.DateTime, default=datetime.utcnow)
+    is_moderated = db.Column(db.Boolean, default=False)
+
+    article = relationship("Article", backref="comments")
+    user = relationship("User", backref="comments")
+
+    def to_dict(self):
+        return {
+            "comment_id": self.comment_id,
+            "content": self.content,
+            "article_id": self.article_id,
+            "user_id": self.user_id,
+            "username": self.user.username,
+            "created_at": self.created_at.isoformat(),
+            "approved": self.is_moderated
+        }

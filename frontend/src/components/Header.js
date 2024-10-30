@@ -6,7 +6,7 @@ import '../static/Header.css';
 const Header = ({ user, setUser }) => {
     return (
         <header className="header">
-            <a href="/">Mi Blog Multiusuario</a>
+            <a href="/">VersaBlog</a>
             <nav>
                 <ul>
                     {user ? (

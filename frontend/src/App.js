@@ -9,6 +9,8 @@ import Register from './components/login/Register';
 import CreateArticle from './components/article/CreateArticle';
 import UserArticles from './components/article/UserArticles';
 import EditArticle from './components/article/EditArticle';
+import ArticlesList from './components/article/ArticlesList';
+import ArticleDetail from './components/article/ArticleDetail';
 import './App.css';
 
 const App = () => {
@@ -59,18 +61,22 @@ const App = () => {
             path="/"
             element={
               <div>
-                <Link to="/create-article" className="links-article">
-                  <FaEdit className="link-icon" /> Crea tu artículo
-                </Link>
-                <Link to="/user-articles" className="links-article">
-                  <FaListUl className="link-icon" /> Ver mis artículos
-                </Link>
+                <div className="links-container">
+                  <Link to="/create-article" className="links-article">
+                    <FaEdit className="link-icon" /> Crea tu artículo
+                  </Link>
+                  <Link to="/user-articles" className="links-article">
+                    <FaListUl className="link-icon" /> Ver mis artículos
+                  </Link>
+                </div>
+                <ArticlesList /> {/* Muestra las cards aquí mismo */}
               </div>
             }
           />
           <Route path="/create-article" element={<CreateArticle token={token} />} />
           <Route path="/user-articles" element={<UserArticles token={token} />} />
           <Route path="/edit-article/:id" element={<EditArticle />} />
+          <Route path="/article/:id" element={<ArticleDetail />} /> {/* Página de detalle */}
         </Routes>
       </div>
     </Router>
