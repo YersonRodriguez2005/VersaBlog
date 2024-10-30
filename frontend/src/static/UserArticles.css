@@ -1,0 +1,110 @@
+.articles-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    color: var(--color-text);
+}
+
+h2 {
+    text-align: center;
+    font-size: 2rem;
+    color: var(--color-primary);
+    margin-bottom: 30px;
+}
+
+.articles-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.article-card {
+    background-color: var(--color-background);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+    position: relative;
+}
+
+.article-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.article-title {
+    font-size: 1.6rem;
+    color: var(--color-primary);
+    margin: 0 0 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.article-content {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--color-text);
+    max-height: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: left;
+}
+
+.article-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+    justify-content: flex-end;
+}
+
+.action-icon {
+    color: var(--color-primary);
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.action-icon:hover {
+    color: #d62839;
+}
+
+.article-actions button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.article-actions button:hover {
+    color: #d62839;
+}
+
+.article-id {
+    font-size: 0.8rem;
+    color: var(--color-text-dark);
+    margin-top: 10px;
+    text-align: right;
+    font-style: italic;
+}
+
+/* Responsive adjustments */
+@media (max-width: 800px) {
+    .articles-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 500px) {
+    .articles-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .article-title {
+        font-size: 1.4rem;
+    }
+    
+    .article-content {
+        font-size: 0.9rem;
+    }
+}

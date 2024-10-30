@@ -1,0 +1,98 @@
+/* Ajustes generales del header */
+.header {
+    background-color: var(--color-primary);
+    color: var(--color-text);
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    transition: background 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+main {
+    padding-top: 90px;
+}
+
+.header nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 25px;
+    margin: 0;
+    flex-grow: 1;
+    justify-content: flex-end;
+}
+
+.header a {
+    margin: 0;
+    font-size: 28px;
+    font-weight: bold;
+    color: var(--color-accent);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    transition: color 0.3s ease-in-out;
+    text-decoration: none;
+}
+
+.header nav ul li a,
+.header nav ul li button {
+    color: var(--color-text);
+    font-size: 18px;
+    text-decoration: none;
+    padding: 10px 20px;
+    margin-right: 20px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+.header nav ul li a:hover,
+.header nav ul li button:hover {
+    background-color: var(--color-hover);
+    color: var(--color-light);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.header nav ul li button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.header nav ul li button:hover {
+    color: var(--color-light);
+}
+
+.header span {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--color-highlight);
+}
+
+body {
+    margin: 0;
+    background-color: var(--color-background-light);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
