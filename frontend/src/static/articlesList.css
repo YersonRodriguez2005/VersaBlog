@@ -39,14 +39,16 @@
     margin-top: 1rem;
     color: var(--color-primary);
     font-weight: bold;
-    font-size: 0.9rem;
+    font-size: 1.2rem;
     text-align: left;
+    text-decoration: none;
     transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .article-card .read-more:hover {
     color: var(--color-primary-hover);
     transform: scale(1.05);
+    text-decoration: underline;
 }
 
 @media (max-width: 768px) {

@@ -9,13 +9,14 @@ bcrypt = Bcrypt()
 # Crear el blueprint
 auth = Blueprint('auth', __name__)
 
-# Ruta para registrar un nuevo usuario
 @auth.route('/register', methods=['POST'])
 def register_user():
     data = request.json
     username = data.get('username')
     email = data.get('email')
     password = data.get('password')
+    biografia = data.get('biografia')
+    foto_perfil_url = data.get('foto_perfil_url')
 
     # Validaciones básicas
     if not username or not email or not password:
@@ -33,7 +34,9 @@ def register_user():
     new_user = User(
         username=username,
         email=email,
-        password_hash=hashed_password
+        password_hash=hashed_password,
+        biografia=biografia,
+        foto_perfil_url=foto_perfil_url
     )
 
     db.session.add(new_user)

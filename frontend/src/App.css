@@ -51,3 +51,55 @@ button:hover {
 .link-icon {
   font-size: 1.2rem;
 }
+
+/* Reutilización de mensajes de Toastify */
+.Toastify__toast {
+  border-radius: 12px;
+  padding: 15px 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  font-family: 'Arial', sans-serif;
+  font-size: 0.95rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.Toastify__toast--success {
+  background-color: var(--color-primary);
+  color: var(--color-secondary);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.Toastify__toast--error {
+  background-color: #dc3545;
+  color: var(--color-secondary);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.Toastify__toast--success .Toastify__toast-body,
+.Toastify__toast--error .Toastify__toast-body {
+  font-size: 1rem;
+  line-height: 1.5;
+  flex-grow: 1;
+  margin-right: 10px;
+}
+
+.Toastify__close-button {
+  color: var(--color-secondary);
+  opacity: 0.8;
+  transition: opacity 0.2s, transform 0.2s;
+  cursor: pointer;
+  padding: 15px;
+  font-size: 0.9rem;
+}
+
+.Toastify__close-button:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.Toastify__toast--success .Toastify__close-button,
+.Toastify__toast--error .Toastify__close-button {
+  padding: 0;
+}

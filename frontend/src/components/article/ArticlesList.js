@@ -25,7 +25,7 @@ const ArticlesList = () => {
                 <div key={article.id} className="article-card">
                     <h3>{article.title}</h3>
                     <p>{article.content.substring(0, 100)}...</p> {/* Previsualización */}
-                    <Link to={`/article/${article.id}`}>Leer más</Link> {/* Enlace al artículo completo */}
+                    <Link to={`/article/${article.id}`} className="read-more">Leer más</Link> {/* Enlace al artículo completo */}
                 </div>
             ))}
         </div>

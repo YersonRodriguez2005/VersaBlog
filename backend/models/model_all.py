@@ -14,7 +14,6 @@ class User(db.Model):
     role = db.Column(db.String(20), default='lector')
     created_at = db.Column(db.DateTime, default=db.func.current_timestamp())
     biografia = db.Column(db.Text, nullable=True)
-    ubicacion = db.Column(db.String(255), nullable=True)
     foto_perfil_url = db.Column(db.String(255), nullable=True)
 
 class Category(db.Model):
