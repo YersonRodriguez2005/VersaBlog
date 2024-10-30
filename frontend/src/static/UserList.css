@@ -1,0 +1,42 @@
+.user-list {
+    max-width: 900px;
+    margin: 2rem auto;
+    color: var(--color-text);
+    text-align: center;
+}
+
+.user-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--color-background);
+    color: var(--color-text);
+    margin-top: 1.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.user-table th,
+.user-table td {
+    padding: 1rem;
+    border-bottom: 1px solid var(--color-primary);
+    text-align: left;
+}
+
+.user-table th {
+    background-color: var(--color-primary);
+    color: var(--color-secondary);
+    font-weight: bold;
+}
+
+.user-table tr:hover {
+    background-color: var(--color-primary-hover);
+    transition: background-color 0.3s ease;
+}
+
+.user-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}

@@ -1,0 +1,52 @@
+.admin-dashboard {
+    max-width: 800px;
+    margin: 2rem auto;
+    text-align: center;
+    padding: 2rem;
+    background-color: var(--color-background);
+    color: var(--color-text);
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s;
+}
+
+.admin-dashboard:hover {
+    transform: scale(1.02);
+}
+
+.admin-dashboard h1 {
+    color: var(--color-secondary);
+    font-size: 2rem;
+}
+
+.admin-links {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.admin-link {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 2rem;
+    color: var(--color-text);
+    background-color: var(--color-primary);
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.admin-link:hover {
+    background-color: var(--color-primary-hover);
+    transform: translateY(-5px);
+}
+
+.icon {
+    font-size: 1.5rem;
+    color: var(--color-secondary);
+}

@@ -11,6 +11,8 @@ import UserArticles from './components/article/UserArticles';
 import EditArticle from './components/article/EditArticle';
 import ArticlesList from './components/article/ArticlesList';
 import ArticleDetail from './components/article/ArticleDetail';
+import AdminDashboard from './components/admin/AdminDashboard';
+import UserList from './components/admin/UserList';
 import './App.css';
 
 const App = () => {
@@ -76,7 +78,9 @@ const App = () => {
           <Route path="/create-article" element={<CreateArticle token={token} />} />
           <Route path="/user-articles" element={<UserArticles token={token} />} />
           <Route path="/edit-article/:id" element={<EditArticle />} />
-          <Route path="/article/:id" element={<ArticleDetail />} /> {/* Página de detalle */}
+          <Route path="/article/:id" element={<ArticleDetail />} />
+          <Route path="/admin" element={<AdminDashboard />} />
+          <Route path="/admin/users" element={<UserList />} />
         </Routes>
       </div>
     </Router>

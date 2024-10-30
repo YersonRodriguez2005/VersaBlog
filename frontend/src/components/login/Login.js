@@ -17,11 +17,16 @@ const Login = ({ setUser }) => {
 
             localStorage.setItem('token', token);
             setUser({ ...user, token });
-            navigate('/');
-        } catch (error) {
-            if (error.response) {
+
+            // Redirigir según el rol del usuario
+            if (user.role === 'admin') {
+                navigate('/admin');
             } else {
+                navigate('/');
             }
+        } catch (error) {
+            console.error("Error al iniciar sesión:", error);
+            // Aquí puedes manejar errores, como mostrar un mensaje de error al usuario
         }
     };
 
