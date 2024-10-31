@@ -15,15 +15,17 @@ const ArticleList = ({ token }) => {
             try {
                 const response = await axios.get('http://localhost:5000/articles');
                 setArticles(response.data);
+                toast.dismiss();  // Elimina cualquier notificación previa antes de mostrar una nueva
                 toast.success("Artículos cargados exitosamente.");
             } catch (error) {
                 console.error('Error al obtener los artículos:', error);
                 toast.error("Error al obtener los artículos: " + error.message);
             }
         };
-
+    
         fetchArticles();
     }, []);
+    
 
     const toggleExpand = (articleId) => {
         setExpandedArticleId(expandedArticleId === articleId ? null : articleId);
