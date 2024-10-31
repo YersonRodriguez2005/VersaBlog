@@ -1,7 +1,7 @@
 from flask import Blueprint, request, jsonify
 from flask_jwt_extended import jwt_required, get_jwt_identity
 from datetime import datetime
-from models.model_all import db, Article, Category
+from models.model_all import db, Article, Category, User
 from sqlalchemy.exc import SQLAlchemyError
 
 articles_bp = Blueprint('articles', __name__)
@@ -66,9 +66,10 @@ def update_article(article_id):
     current_user_id = get_jwt_identity()
 
     article = Article.query.get_or_404(article_id)
+    current_user = User.query.get(current_user_id)
 
     # Verificar propiedad
-    if article.user_id != current_user_id:
+    if article.user_id != current_user_id and current_user.role != 'admin':
         return jsonify({"error": "No tienes permiso para actualizar este artículo"}), 403
 
     article.title = data.get('title', article.title)
@@ -94,8 +95,9 @@ def delete_article(article_id):
     current_user_id = get_jwt_identity()
     article = Article.query.get_or_404(article_id)
 
-    # Verificar propiedad
-    if article.user_id != current_user_id:
+    current_user = User.query.get(current_user_id)
+
+    if article.user_id != current_user_id and current_user.role != 'admin':
         return jsonify({"error": "No tienes permiso para eliminar este artículo"}), 403
 
     try:

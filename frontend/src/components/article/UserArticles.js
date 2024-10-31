@@ -35,6 +35,9 @@ const UserArticles = ({ token }) => {
     }, [token, navigate]);
 
     const handleDelete = async (articleId) => {
+        const confirmDelete = window.confirm("¿Estás seguro de que deseas eliminar este artículo?");
+        if (!confirmDelete) return;
+
         const authToken = token || localStorage.getItem('token');
 
         try {
@@ -72,10 +75,8 @@ const UserArticles = ({ token }) => {
                                     <FaTrash className="action-icon" title="Eliminar artículo" />
                                 </button>
                             </div>
-
                         </div>
                     ))}
-
                 </div>
             )}
         </div>

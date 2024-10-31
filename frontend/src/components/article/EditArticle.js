@@ -58,7 +58,9 @@ const EditArticle = () => {
                 }
             });
             toast.success("Artículo actualizado exitosamente.");
-            navigate('/user-articles');
+
+            // Redirección a la página anterior después de la actualización
+            navigate(-1);
         } catch (error) {
             console.error("Error al actualizar el artículo:", error);
             toast.error("Error al actualizar el artículo: " + (error.response ? error.response.data.message : error.message));

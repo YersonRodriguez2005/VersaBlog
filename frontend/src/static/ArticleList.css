@@ -1,0 +1,81 @@
+/* src/static/ArticleList.css */
+
+.article-list {
+    max-width: 900px;
+    margin: 2rem auto;
+    color: var(--color-text);
+    text-align: center;
+}
+
+.article-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--color-background);
+    color: var(--color-text);
+    margin-top: 1.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.article-table th,
+.article-table td {
+    padding: 1rem;
+    border-bottom: 1px solid var(--color-primary);
+    text-align: left;
+}
+
+.article-table th {
+    background-color: var(--color-primary);
+    color: var(--color-secondary);
+    font-weight: bold;
+}
+
+.article-table tr:hover {
+    background-color: var(--color-primary-hover);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.expanded-row {
+    background-color: var(--color-background);
+}
+
+.article-details {
+    padding: 1.5rem;
+    background-color: var(--color-secondary);
+    color: var(--color-text-dark);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    white-space: pre-wrap;
+}
+
+.article-table .action-buttons-container {
+    display: flex;
+    justify-content: center; /* Centra horizontalmente los botones */
+    gap: 0.5rem; /* Espacio entre los botones */
+}
+
+.article-table .action-button {
+    cursor: pointer;
+    font-size: 1rem;
+    padding: 0.5rem; /* Espaciado interno para los botones */
+    color: #555555;
+    background: none;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    transition: color 0.1s;
+}
+
+.article-table .edit-button {
+    color: var(--color-primary);
+}
+
+.article-table .delete-button {
+    color: var(--color-danger);
+}
+
+.article-table .action-button:hover {
+    color: #000;
+}

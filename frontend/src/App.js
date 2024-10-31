@@ -13,6 +13,7 @@ import ArticlesList from './components/article/ArticlesList';
 import ArticleDetail from './components/article/ArticleDetail';
 import AdminDashboard from './components/admin/AdminDashboard';
 import UserList from './components/admin/UserList';
+import ArticleList from './components/admin/ArticleList';
 import './App.css';
 
 const App = () => {
@@ -71,7 +72,7 @@ const App = () => {
                     <FaListUl className="link-icon" /> Ver mis artículos
                   </Link>
                 </div>
-                <ArticlesList /> {/* Muestra las cards aquí mismo */}
+                <ArticlesList /> 
               </div>
             }
           />
@@ -81,6 +82,7 @@ const App = () => {
           <Route path="/article/:id" element={<ArticleDetail />} />
           <Route path="/admin" element={<AdminDashboard />} />
           <Route path="/admin/users" element={<UserList />} />
+          <Route path="/admin/articles" element={<ArticleList />} />
         </Routes>
       </div>
     </Router>
